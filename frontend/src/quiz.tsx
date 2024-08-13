@@ -1,4 +1,5 @@
 import React, { useEffect, useState} from "react";
+import { Button } from "@mui/material";
 
 type Question = {
   id:number;
@@ -49,15 +50,15 @@ const Quiz: React.FC = () => {
   }
 
   return (
-    <div>
+    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
       {questions.length === 0 ? (
         <div>Loading...</div>
       ) : (
         questions.map((q, index) => (
-          <div key={index}>
+          <div key={index} style={{ marginBottom: "20px" }}>
             <h3>{q.question}</h3>
             {q.options.map((option, i) => (
-              <button key={i}>{option}</button>
+              <Button variant="contained" color="primary" style={{ marginRight: "10px", marginBottom: "10px"}} key={i}>{option}</Button>
             ))}
           </div>
         ))
